@@ -19,9 +19,9 @@ export const createContainer = <TServiceDescriptor>() => {
          * Resolve 1..N services registered in the container
          * @param services List of services to resolve
          */
-        getService<TServiceName extends TServiceNames>(
+        getService: <TServiceName extends TServiceNames>(
             ...services: TServiceName[]
-        ) {
+        ) => {
             const resolve = (service: TServiceName) => {
                 const factoryOrInstance = factories[service];
                 if (factoryOrInstance === undefined) {
@@ -49,10 +49,10 @@ export const createContainer = <TServiceDescriptor>() => {
          * @param name Name of service to register
          * @param factory Factory function that instantiates the service
          */
-        register<TServiceName extends TServiceNames>(
+        register: <TServiceName extends TServiceNames>(
             name: TServiceName,
             factory: FactoryOrSingleton<TServiceName>
-        ) {
+        ) => {
             if (factories[name] !== undefined) {
                 throw new Error(
                     `Service ${name} already registered in container`
