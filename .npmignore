@@ -1,0 +1,14 @@
+/docs
+/src
+/tsconfig.json
+/tslint.json
+node_modules
+
+# misc
+.DS_Store
+.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+*.code-workspace

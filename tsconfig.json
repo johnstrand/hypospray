@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "rootDir": "src",
+        "noImplicitAny": true,
+        "module": "es6",
+        "target": "es5",
+        "jsx": "react",
+        "moduleResolution": "node",
+        "declaration": true,
+        "diagnostics": true,
+        "listEmittedFiles": true,
+        "lib": ["es5", "es6", "dom"]
+    },
+    "exclude": ["node_modules", "dist"]
+}

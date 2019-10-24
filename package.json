@@ -1,0 +1,19 @@
+{
+  "name": "hypospray",
+  "version": "1.0.0",
+  "description": "Is a simple dependency container",
+  "main": "dist/hypospray.js",
+  "types": "dist/hypospray.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node_modules/.bin/tsc",
+    "prepublishOnly": "node_modules/.bin/tsc"
+  },
+  "author": "John Strand",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.6.4"
+  }
+}
