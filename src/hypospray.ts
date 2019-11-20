@@ -14,7 +14,7 @@ const createContainer = <TServiceDescriptor>() => {
 
   const factories = {} as TServiceFactoriesCollection;
 
-  return {
+  const container = {
     /**
      * Resolve 1..N services registered in the container
      * @param services List of services to resolve
@@ -56,9 +56,11 @@ const createContainer = <TServiceDescriptor>() => {
       }
 
       factories[name] = factory;
-      return this;
+      return container;
     }
   };
+
+  return container;
 };
 
 export default createContainer;
