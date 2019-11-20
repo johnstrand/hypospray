@@ -1,3 +1,15 @@
+type ServiceContainer<TServiceDescriptor> = {
+  getService: <TServiceName extends keyof TServiceDescriptor>(
+    ...services: TServiceName[]
+  ) => Pick<TServiceDescriptor, TServiceName>;
+  register: <TServiceName extends keyof TServiceDescriptor>(
+    name: TServiceName,
+    factory:
+      | (() => TServiceDescriptor[TServiceName])
+      | TServiceDescriptor[TServiceName]
+  ) => ServiceContainer<TServiceDescriptor>;
+};
+
 /**
  * Create an instance of the service container
  */
@@ -14,7 +26,7 @@ const createContainer = <TServiceDescriptor>() => {
 
   const factories = {} as TServiceFactoriesCollection;
 
-  const container = {
+  const container: ServiceContainer<TServiceDescriptor> = {
     /**
      * Resolve 1..N services registered in the container
      * @param services List of services to resolve
